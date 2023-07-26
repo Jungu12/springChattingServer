@@ -40,13 +40,9 @@ public class ChatService {
 		return chatRooms.get(roomId);
 	}
 
-	public ChatRoom createRoom(String name) {
-		String randomId = UUID.randomUUID().toString();
-		ChatRoom chatRoom = ChatRoom.builder()
-			.roomId(randomId)
-			.name(name)
-			.build();
-		chatRooms.put(randomId, chatRoom);
+	public static ChatRoom createRoom() {
+		ChatRoom chatRoom = new ChatRoom();
+		chatRoom.setRoomId(UUID.randomUUID().toString());
 		return chatRoom;
 	}
 
